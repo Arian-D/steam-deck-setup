@@ -4,13 +4,6 @@
   gather_facts: no
 
   tasks:
-    - name: Set up flathub for the user (as opposed to the pre-added system)
-      shell: |
-        flatpak --user \
-                remote-add \
-                --if-not-exists \
-                flathub https://flathub.org/repo/flathub.flatpakrepo
-      
     - name: Install RetroDECK
       flatpak:
         name: net.retrodeck.retrodeck

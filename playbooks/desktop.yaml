@@ -1,0 +1,28 @@
+
+---
+- name: User desktop setup
+  hosts: deck
+  gather_facts: no
+
+  tasks:
+    - name: Set up flathub for the user (as opposed to the pre-added system)
+      shell: |
+        flatpak --user \
+                remote-add \
+                --if-not-exists \
+                flathub https://flathub.org/repo/flathub.flatpakrepo
+      
+    - name: Install some desktop apps
+      flatpak:
+        name:
+          # My browser of choice
+          - io.gitlab.librewolf-community
+          # No need for explanation
+          - com.discordapp.Discord
+          # For xcloud gaming
+          - com.microsoft.Edge
+          # Most based editor lol
+          - org.gnu.emacs
+        method: user
+        state: present
+        remote: flathub

@@ -19,6 +19,8 @@ source .venv/bin/activate
 pip3 install ansible
 
 # Run playbooks
+# TODO: Move these to a single main.yaml play rather than doing it here
+.venv/bin/ansible-playbook ./playbooks/desktop.yaml
 .venv/bin/ansible-playbook ./playbooks/emulation.yaml
 .venv/bin/ansible-playbook -K ./playbooks/system.yaml
 
