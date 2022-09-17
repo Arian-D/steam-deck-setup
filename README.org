@@ -1,4 +1,29 @@
 #+title: Steam Deck setup
+#+author: Arian
+#+startup: fold latexpreview
 
 These are several personalized Ansible playbooks and notes for my
 Steam Deck. Feel free to use, read, or fork for your use case.
+
+* Playbooks
+** IN-PROGRESS [2/3] Emulation
+I mainly use [[https://retrodeck.net/][RetroDECK]] for emulation, but certain emulators don't
+exist on it yet, so the [[https://www.emudeck.com/][EmuDECK]] installer is also there as backup.
+- [X] RetroDECK
+- [X] EmuDECK installer 
+- [ ] Cemu setup
+  
+** TODO [0/4] SSH
+- [ ] Enable
+- [ ] Disable root
+- [ ] Disable password authentication
+- [ ] Upload keys
+  
+** TODO [0/2] Desktop apps
+Download using the flatpak module
+- [ ] Discord
+- [ ] Emacs
+  
+** TODO [0/2] System apps
+- [ ] Podman
+- [ ] distrobox

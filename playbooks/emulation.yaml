@@ -3,16 +3,21 @@
   hosts: deck
 
   tasks:
-    - name: Set up flatpak
+    - name: Set up flathub for the user (as opposed to the pre-added system)
       shell: |
         flatpak --user \
                 remote-add \
                 --if-not-exists \
                 flathub https://flathub.org/repo/flathub.flatpakrepo
       
-    - name: Install RetroDeck
+    - name: Install RetroDECK
       flatpak:
         name: net.retrodeck.retrodeck
         method: user
         state: present
         remote: flathub
+
+    - name: Download (but not run or install) the EmuDeck installer
+      get_url:
+        url: https://www.emudeck.com/EmuDeck.desktop
+        dest: /home/deck/Desktop/EmuDeck.desktop
