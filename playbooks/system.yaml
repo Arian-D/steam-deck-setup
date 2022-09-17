@@ -1,0 +1,40 @@
+---
+- name: System setup
+  hosts: deck
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Upload SSH keys
+      authorized_key:
+        user: deck
+        state: present
+        key: "{{ lookup('file', lookup('env', 'HOME') + '/.ssh/id_ed25519.pub') }}"
+
+    - name: Disable Root Login
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: "PermitRootLogin no"
+        state: present
+
+    - name: Disable password authentication
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PasswordAuthentication'
+        line: "PasswordAuthentication no"
+        state: present
+
+    - name: Enable X11 forwarding
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^X11Forwarding'
+        line: "X11Forwarding yes"
+        state: present
+
+    - name: Enable SSH
+      systemd:
+        name: sshd
+        enabled: yes
+        state: restarted
+        daemon_reload: yes

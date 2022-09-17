@@ -7,23 +7,17 @@ Steam Deck. Feel free to use, read, or fork for your use case.
 
 * Playbooks
 ** IN-PROGRESS [2/3] Emulation
+- [[file:playbooks/emulation.yaml][Play]] 
 I mainly use [[https://retrodeck.net/][RetroDECK]] for emulation, but certain emulators don't
 exist on it yet, so the [[https://www.emudeck.com/][EmuDECK]] installer is also there as backup.
 - [X] RetroDECK
 - [X] EmuDECK installer 
 - [ ] Cemu setup
-  
-** TODO [0/4] SSH
-- [ ] Enable
-- [ ] Disable root
-- [ ] Disable password authentication
-- [ ] Upload keys
-  
 ** TODO [0/2] Desktop apps
 Download using the flatpak module
 - [ ] Discord
 - [ ] Emacs
   
-** TODO [0/2] System apps
+** TODO [0/2] System setup
 - [ ] Podman
 - [ ] distrobox

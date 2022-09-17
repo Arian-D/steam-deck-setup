@@ -1,6 +1,7 @@
 ---
 - name: Set up emulation tools
   hosts: deck
+  gather_facts: no
 
   tasks:
     - name: Set up flathub for the user (as opposed to the pre-added system)

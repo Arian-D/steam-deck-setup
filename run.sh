@@ -20,5 +20,6 @@ pip3 install ansible
 
 # Run playbooks
 .venv/bin/ansible-playbook ./playbooks/emulation.yaml
+.venv/bin/ansible-playbook -K ./playbooks/system.yaml
 
 deactivate
