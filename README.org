@@ -1,0 +1,4 @@
+#+title: Steam Deck setup
+
+These are several personalized Ansible playbooks and notes for my
+Steam Deck. Feel free to use, read, or fork for your use case.
