@@ -5,6 +5,7 @@
   gather_facts: no
 
   tasks:
+    # SSH 
     - name: Upload SSH keys
       authorized_key:
         user: deck
@@ -38,3 +39,26 @@
         enabled: yes
         state: restarted
         daemon_reload: yes
+
+    # System apps that DO NOT survive SteamOS updates
+    - name: Disable Read-only
+      shell: steamos-readonly disable
+
+    - name: Install podman
+      pacman:
+        name:
+          - podman
+          - fuse-overlayfs
+          - slirp4netns
+        state: latest
+
+    # There is a better of doing this but this just werks for now
+    - name: Set uid/gid for rootless containers
+      shell: |
+        touch /etc/subuid /etc/subgid
+        chmod 644 /etc/subuid /etc/subgid
+        usermod --add-subuids 100000-165535 --add-subgids 100000-165535 deck
+
+    - name: Install distrobox
+      shell: curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh
+
