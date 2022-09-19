@@ -23,6 +23,8 @@
           - com.microsoft.Edge
           # Most based editor lol
           - org.gnu.emacs
+          # FreeTube for music in game mode
+          - io.freetubeapp.FreeTube
         method: user
         state: present
         remote: flathub
