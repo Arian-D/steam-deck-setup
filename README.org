@@ -6,18 +6,20 @@ These are several personalized Ansible playbooks and notes for my
 Steam Deck. Feel free to use, read, or fork for your use case.
 
 * Playbooks
-** IN-PROGRESS [2/3] Emulation
+** Desktop apps
+- [[file:playbooks/desktop.yaml][Play]]
+  
+These are some apps that I install from flathub.
+  
+** Emulation
 - [[file:playbooks/emulation.yaml][Play]] 
+  
 I mainly use [[https://retrodeck.net/][RetroDECK]] for emulation, but certain emulators don't
 exist on it yet, so the [[https://www.emudeck.com/][EmuDECK]] installer is also there as backup.
-- [X] RetroDECK
-- [X] EmuDECK installer 
-- [ ] Cemu setup
-** TODO [0/2] Desktop apps
-Download using the flatpak module
-- [ ] Discord
-- [ ] Emacs
-  
-** TODO [0/2] System setup
-- [ ] Podman
-- [ ] distrobox
+
+** System setup
+- [[file:playbooks/system.yaml][Play]] 
+
+During the system setup, OpenSSH is brought up along with some basic
+security configurations. Lastly, [[https://podman.io/][podman]] is installed in order for
+[[https://github.com/89luca89/distrobox][distrobox]] to work. 
