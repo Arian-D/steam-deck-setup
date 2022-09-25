@@ -44,12 +44,13 @@
     - name: Disable Read-only
       shell: steamos-readonly disable
 
-    - name: Install podman
+    - name: Install some tools using pacman
       pacman:
         name:
           - podman
           - fuse-overlayfs
           - slirp4netns
+          - wireshark-qt
         state: latest
 
     # There is a better of doing this but this just werks for now
@@ -61,4 +62,13 @@
 
     - name: Install distrobox
       shell: curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh
+
+    - name: deck user
+      user:
+        name: deck
+        groups: wheel,wireshark
+        append: yes
+
+
+    
 

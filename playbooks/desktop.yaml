@@ -25,6 +25,8 @@
           - org.gnu.emacs
           # FreeTube for music in game mode
           - io.freetubeapp.FreeTube
+          # For reversing certain binaries
+          - org.ghidra_sre.Ghidra
         method: user
         state: present
         remote: flathub
